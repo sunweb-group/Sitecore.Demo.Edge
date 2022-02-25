@@ -1,6 +1,9 @@
 import { ReactElement } from 'react';
 import Script from 'next/script';
 import FrequentlyPurchasedTogether from '../components/Widgets/FrequentlyPurchasedTogether';
+import ProductDetails from '../components/Widgets/ProductDetails';
+import SameBrandProducts from '../components/Widgets/SameBrandProducts';
+import RandomProducts from '../components/Widgets/RandomProducts';
 
 // ***** TYPES *****
 
@@ -58,6 +61,19 @@ export const DiscoverScripts: JSX.Element | undefined = isDiscoverConfigured ? (
         window.RFK.setWidget('rfkid_11', {
           type: 'recommendation',
           component: FrequentlyPurchasedTogether,
+        });
+        window.RFK.setWidget('ps_pd', {
+          type: 'recommendation',
+          component: ProductDetails,
+          // global: true,
+        });
+        window.RFK.setWidget('rfk_sbp', {
+          type: 'recommendation',
+          component: SameBrandProducts,
+        });
+        window.RFK.setWidget('ps_rand', {
+          type: 'recommendation',
+          component: RandomProducts,
         });
         window.RFK.init();
       }}
